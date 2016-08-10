@@ -1,0 +1,9 @@
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\lakelevel_data.py", line 34, in process_data
+    sites_data = {"saltair": self.get_levels_site_series(datafiles[0]),
+  File "D:\marinadisplay\gsl-weather-display\lakelevel_data.py", line 81, in get_levels_site_series
+    levelfield = [field for field in csvreader.fieldnames if field.endswith('72020')][0]
+IndexError: list index out of range

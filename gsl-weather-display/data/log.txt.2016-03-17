@@ -1,0 +1,67 @@
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 65, in <module>
+    datafilesets[provider.get_key()] = provider.download_latest_data()
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 43, in download_latest_data
+    return [urllib2.urlopen('http://mesowest.utah.edu/cgi-bin/droman/meso_download_mesowest_ndb.cgi?product=&stn=HATUT&unit=0&time=LOCAL&daycalendar=1&day1=' + str(date.day) + '&month1=' + str(date.month) +'&year1=' + str(date.year) +'&hour1=' + str(date.hour) + '&hours=24&output=csv&order=1&TMPF=TMPF&GUST=GUST&DRCT=DRCT&SKNT=SKNT')]
+  File "C:\Python27\lib\urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "C:\Python27\lib\urllib2.py", line 404, in open
+    response = self._open(req, data)
+  File "C:\Python27\lib\urllib2.py", line 422, in _open
+    '_open', req)
+  File "C:\Python27\lib\urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "C:\Python27\lib\urllib2.py", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "C:\Python27\lib\urllib2.py", line 1187, in do_open
+    r = h.getresponse(buffering=True)
+  File "C:\Python27\lib\httplib.py", line 1045, in getresponse
+    response.begin()
+  File "C:\Python27\lib\httplib.py", line 409, in begin
+    version, status, reason = self._read_status()
+  File "C:\Python27\lib\httplib.py", line 373, in _read_status
+    raise BadStatusLine(line)
+BadStatusLine: ''
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 

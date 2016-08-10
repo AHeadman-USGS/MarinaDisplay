@@ -1,0 +1,153 @@
+div#contentFrame {
+    position: relative;
+}
+
+div#contentArea {
+}
+
+
+div#weathercolumn {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div#levelcolumn {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div#levelbox.twocol {
+    margin-top: 3em;
+}
+
+div#levelcolumn.twocol {
+    position: absolute;
+    left: 0;
+    right: 45%;
+    padding: 20px;
+}
+
+div#weathercolumn.twocol {
+    position: absolute;
+    right: 0;
+    left: 55%;
+    padding: 20px;
+}
+
+div#radarbox {
+    padding-top: 1px;
+}
+
+div#radarbox h3 {
+    margin-bottom: 5px;
+}
+
+div#radarbox img {
+    width: 70%;
+    display: block;
+}
+
+div#radarbox.twocol img {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+}
+
+
+div#graph {
+    margin-right: 9em;
+}
+
+div#legend {
+    width: 8em;
+    float: right;
+}
+
+div#legend li.south {
+    color: #2a9338;
+    list-style: square;
+}
+
+div#legend li.north {
+    color: #AD1F00;
+    list-style: square;
+}
+
+div#legend span {
+    color: black;
+}
+
+div#graphcontainer {
+    color: black;
+    padding: 5px;
+}
+
+h3.twocol {
+    text-align: center;
+    margin-top: 0em;
+}
+
+h3 {
+    margin-top: 2em;
+}
+
+#contentFrame table {
+    border-collapse:collapse;
+}
+
+#contentFrame td {
+    padding: 8px;
+    border: 1px solid #474747;
+}
+
+#contentFrame th {
+    text-align: left;
+    padding: 8px;
+}
+
+#contentFrame tr:first-child th {
+    border-bottom: 1px solid black;
+}
+#contentFrame th:first-child {
+    border-right: 1px solid black;
+}
+#contentFrame th:last-child {
+    border-right: none;
+}
+
+table.weather td, table.weather th {
+}
+
+table.weather {
+    display: inline-block;
+}
+
+th.sub {
+    font-weight: normal;
+}
+.left {
+    float: left;
+    margin-right: 2em;
+}
+
+.clear {
+    clear: both;
+}
+th.caption {
+    text-align: center;
+}
+
+div#error {
+    background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 1em;
+}

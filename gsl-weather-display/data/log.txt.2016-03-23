@@ -1,0 +1,14 @@
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
+Generate failed.
+Traceback (most recent call last):
+  File "D:\marinadisplay\gsl-weather-display\generate.py", line 76, in <module>
+    data[provider.get_key()] = provider.process_data(datafilesets[provider.get_key()])
+  File "D:\marinadisplay\gsl-weather-display\hatisland_data.py", line 55, in process_data
+    current_temp_f = float(latest_data['TMPF'])
+ValueError: could not convert string to float: 
