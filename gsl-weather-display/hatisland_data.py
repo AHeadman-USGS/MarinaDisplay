@@ -13,8 +13,8 @@ class MesoWestFile:
         
         # If we're still looking for the header...
         if not self.csvstarted:
-            # Data has header with column names after "PARM = "
-            while not line.startswith('PARM = '):
+            # Data has header with column names after "# STATE: UT"
+            while not line.startswith('# STATE: UT'):
                 line = self.f.next()
 
             # Return the column names as a line for csv parsing
@@ -38,7 +38,7 @@ class WeatherDataProvider(DataProvider):
         return "hatisland"
 
     def download_latest_data(self):
-        date = datetime.now()  #might be redundent
+        date = datetime.now()  #might be redundent as now we are scraping the last 24.
 
         return [urllib2.urlopen('https://api.synopticlabs.org/v2/stations/timeseries?&token=355b0e8b96844c09a9e945851f2f68f0&recent=1440&stid=hatut&output=csv')]
 
@@ -49,14 +49,15 @@ class WeatherDataProvider(DataProvider):
         csvfile = csv.DictReader(MesoWestFile(data[0]), skipinitialspace=True)
         
         # We requested the data to be sorted most recent first in our url above.
-        latest_data = csvfile.next()  # The api requests the data for the last 24 hours, so this may/may not be necessary.
+        latest_data = csvfile.next()  
         
         # Variable descriptions here: http://mesowest.utah.edu/cgi-bin/droman/variable_units_select.cgi?unit=0
-        # Variables have changed, they now use metric, this needs to be updated.
+        # Variables have changed, they now use metric, this needs to be updated. Starting to change and update variables.
+        # it might be a while.
         
-        current_temp_f = float(latest_data['TMPF'])
-        hatisland_data['temp_f'] = current_temp_f
-        hatisland_data['temp_c'] = self.f_to_c(current_temp_f)
+        current_temp_c = float(latest_data['air_temp_set_1'])
+        hatisland_data['temp_c'] = current_temp_c
+        hatisland_data['temp_f'] = self.c_to_f(current_temp_c)
 
         hatisland_data['wind_speed'] = float(latest_data['SKNT'])
         hatisland_data['wind_direction'] = self.meaningful_direction(float(latest_data['DRCT']))
@@ -79,6 +80,7 @@ class WeatherDataProvider(DataProvider):
             
             high_gust = max(high_gust, float(data['GUST']))
 
+            # things below here need fixing as these header columns don't currently exist.
         hatisland_data['high_temp_f'] = high_temp_f
         hatisland_data['low_temp_f'] = low_temp_f
         hatisland_data['high_temp_c'] = self.f_to_c(high_temp_f)
@@ -88,8 +90,8 @@ class WeatherDataProvider(DataProvider):
         return hatisland_data
 
     # Convert number in farenheit to number in celcius with one place after the decimal.
-    def f_to_c(self, f_val):
-        return round((f_val - 32) * (5. / 9), 1)
+    def c_to_f(self, c_val):
+        return round((c_val *1.8)+32, 1)
 
     def meaningful_direction(self, wind_degrees):
         wind_directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
