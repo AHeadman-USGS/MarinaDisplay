@@ -38,7 +38,7 @@ class WeatherDataProvider(DataProvider):
         return "hatisland"
 
     def download_latest_data(self):
-        date = datetime.now()
+        date = datetime.now()  #might be redundent
 
         return [urllib2.urlopen('https://api.synopticlabs.org/v2/stations/timeseries?&token=355b0e8b96844c09a9e945851f2f68f0&recent=1440&stid=hatut&output=csv')]
 
@@ -49,9 +49,11 @@ class WeatherDataProvider(DataProvider):
         csvfile = csv.DictReader(MesoWestFile(data[0]), skipinitialspace=True)
         
         # We requested the data to be sorted most recent first in our url above.
-        latest_data = csvfile.next()
+        latest_data = csvfile.next()  # The api requests the data for the last 24 hours, so this may/may not be necessary.
         
         # Variable descriptions here: http://mesowest.utah.edu/cgi-bin/droman/variable_units_select.cgi?unit=0
+        # Variables have changed, they now use metric, this needs to be updated.
+        
         current_temp_f = float(latest_data['TMPF'])
         hatisland_data['temp_f'] = current_temp_f
         hatisland_data['temp_c'] = self.f_to_c(current_temp_f)
