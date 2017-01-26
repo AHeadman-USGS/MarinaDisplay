@@ -40,7 +40,7 @@ class WeatherDataProvider(DataProvider):
     def download_latest_data(self):
         date = datetime.now()
 
-        return [urllib2.urlopen('http://mesowest.utah.edu/cgi-bin/droman/meso_download_mesowest_ndb.cgi?product=&stn=HATUT&unit=0&time=LOCAL&daycalendar=1&day1=' + str(date.day) + '&month1=' + str(date.month) +'&year1=' + str(date.year) +'&hour1=' + str(date.hour) + '&hours=24&output=csv&order=1&TMPF=TMPF&GUST=GUST&DRCT=DRCT&SKNT=SKNT')]
+        return [urllib2.urlopen('https://api.synopticlabs.org/v2/stations/timeseries?&token=355b0e8b96844c09a9e945851f2f68f0&recent=1440&stid=hatut&output=csv')]
 
 
     def process_data(self, data):
